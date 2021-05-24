@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <Main /> 
+    
+    <Album 
+      v-for="(cd, index) in album"
+      :key="index"
+      :cd="cd"
+    /> 
 
   </div>
 </template>
@@ -10,12 +15,13 @@
   //importo axios
   import axios from 'axios';
   import Header from '@/components/Header.vue';
-  import Main from '@/components/Main.vue';
+
+  import Album from '@/components/Album.vue';
 export default {
   name: 'App',
   components: {
     Header,
-    Main
+    Album
   },
   data(){
     return{
@@ -27,7 +33,8 @@ export default {
     //acquisisco nel created i miei dati tramite l'API
     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
     .then(res=>{
-      this.album = res.data;
+      
+      this.album = res.data.response;
       console.log(this.album);
     })
     .catch(err=>{
