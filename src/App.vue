@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <Header />
-    
-    <Album 
+    <div class="wrap row d-flex justify-content-between">
+      <Album 
       v-for="(cd, index) in album"
       :key="index"
       :cd="cd"
     /> 
+    </div>
+    
 
   </div>
 </template>
@@ -46,5 +48,12 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~bootstrap/scss/bootstrap' 
+  @import '~bootstrap/scss/bootstrap' ;
+  body{
+    background-color: #1E2D3B;
+  }
+  .wrap{
+    width: 60%;
+    margin: 0 auto;
+  }
 </style>

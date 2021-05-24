@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap d-flex align-items-center">
+  <div class="container d-flex align-items-center">
     <img src="@/assets/img/logo.png" alt="logo">
   </div>
 </template>
@@ -12,8 +12,10 @@ export default {
 
 <style lang="scss" scoped>
 
-  .wrap{
+  .container{
+    width: 100%;
     height: 100px;
+    margin: 0;
     background-color: #2E3A46;
     img{
       height: 80px;
