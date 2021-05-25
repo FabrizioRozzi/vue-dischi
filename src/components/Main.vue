@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div class="max row ">
+    <div class="max d-flex justify-content-center row ">
+      <ListGenre />
       <Album 
         v-for="(cd, index) in album"
         :key="index"
@@ -15,11 +16,13 @@
 //importo axios
 import axios from 'axios';
 import Album from '@/components/Album.vue';
+import ListGenre from '@/components/ListGenre.vue';
 
 export default {
   name : 'Main',
   components : {
-    Album
+    Album,
+    ListGenre
   },
   data(){
     return{
@@ -44,6 +47,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .container{
+    width: 60%;
+  }
  .max{
    max-width: 1200px;
  }
