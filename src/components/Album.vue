@@ -1,11 +1,16 @@
 <template>
   
-    <div class="album col-sm-6 col-md-4 col-lg-3 mt-5">
-      <img :src="cd.poster" alt="">
-      <h3>{{cd.title}}</h3>
+    <div class="album text-center col-xs-12 col-sm-6 col-md-4 col-lg-4  mt-5">
+      <img 
+        class="mt-2 mb-2"
+        :src="cd.poster" alt=""
+      >
+      <h5>{{cd.title}}</h5>
       <span>{{cd.author}}</span><br>
       <span>{{cd.year}}</span>
     </div>
+  
+    
 
 </template>
 
@@ -20,14 +25,23 @@ export default {
 
 <style lang="scss" scoped>
   .album{
-    background-color: whitesmoke;
-
+    background-color: #2E3A46;
+    margin: 0 10px;
+    height: auto;
+    width: 200px;
+    img{
+      width: 160px;
+    }
+    h5{
+      color: white;
+    }
+    span{
+      color: #48434B;
+    }
   }
 
       
-        img{
-          height: 150px;
-        }
+        
     
   
 </style>
