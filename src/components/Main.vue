@@ -1,9 +1,12 @@
 <template>
   <div class="container">
     <div class="max d-flex justify-content-center row ">
-      <ListGenre />
+      <ListGenre 
+        :genere="genere"
+        @searchOption="searching"
+      />
       <Album 
-        v-for="(cd, index) in album"
+        v-for="(cd, index) in filteredAlbum"
         :key="index"
         :cd="cd"
       /> 
@@ -28,6 +31,33 @@ export default {
     return{
       axios,
       album:[],
+      genere:[],
+      genSel:'1',
+
+    }
+  },
+  computed:{
+    filteredAlbum(){
+      if(this.genSel === '1'){
+        return this.album
+       
+      }
+      // console.log(this.album);
+      return this.album.filter(item => item.genre.includes(this.genSel))
+    }
+  },
+  methods:{
+    dioPorco(){
+      this.album.forEach(el =>{
+        if(!this.genere.includes(el.genre)){
+          this.genere.push(el.genre)
+          console.log(this.genere);
+        }
+             
+      })
+    },
+    searching(gen){
+      this.genSel = gen;
     }
   },
   created(){
@@ -36,12 +66,18 @@ export default {
     .then(res=>{
       
       this.album = res.data.response;
-      console.log(this.album);
+      this.dioPorco()
     })
     .catch(err=>{
       console.log(err);
     })
+    
   },
+  mounted(){
+    
+  },
+  
+
 }
 
 </script>
